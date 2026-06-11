@@ -1,0 +1,1 @@
+a simple project to demonstrating use of objects and prototypal inheritance 

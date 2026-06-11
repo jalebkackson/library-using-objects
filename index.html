@@ -3,10 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Project: Library</title>
   </head>
   <body>
-    <h1>test</h1>
+    <button id="open-dialog">New Book</button>
+    <dialog id="book-dialog">
+      <form id="add-book-form">
+        <input
+          type="text"
+          id="book-title"
+          name="bookTitle"
+          placeholder="Title.."
+        />
+        <input
+          type="text"
+          id="book-author"
+          name="bookAuthor"
+          placeholder="Author.."
+        />
+        <input
+          type="number"
+          id="book-pages"
+          name="bookPages"
+          placeholder="Total Pages.."
+        />
+        <label for="book-read">Have you read it?</label>
+        <input type="checkbox" id="book-read" name="hasBeenRead" />
+
+        <button class="add-book">Add Book</button>
+      </form>
+    </dialog>
+    <div class="books" id="books"></div>
     <script src="script.js"></script>
   </body>
 </html>

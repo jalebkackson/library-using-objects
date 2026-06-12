@@ -14,6 +14,10 @@ function Book(author, title, pages, hasBeenRead) {
   this.hasBeenRead = hasBeenRead;
 }
 
+Book.prototype.toggleRead = function () {
+  this.hasBeenRead = !this.hasBeenRead;
+};
+
 // adds books to myLibrary
 function addBookToLibrary(author, title, pages, hasBeenRead) {
   myLibrary.push(new Book(author, title, pages, hasBeenRead));
@@ -57,11 +61,22 @@ function displayBooks() {
     const deleteBtn = createText("button", "X", "delete-button");
     deleteBtn.addEventListener("click", () => deleteBook(book.id));
 
+    const readToggle = createText(
+      "button",
+      book.hasBeenRead ? "Read" : "Unread",
+      "read-btn",
+    );
+    readToggle.addEventListener("click", () => {
+      book.toggleRead();
+      displayBooks();
+    });
+
     card.append(
       createText("h3", book.title, "title"),
       createText("p", book.author, "author"),
       createText("p", `${book.pages} pages`, "pages"),
       deleteBtn,
+      readToggle,
     );
     card.dataset.id = book.id;
     container.appendChild(card);
